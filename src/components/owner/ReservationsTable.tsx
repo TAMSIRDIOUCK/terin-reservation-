@@ -13,6 +13,7 @@ interface Booking {
     full_name: string | null
     phone: string | null
   }
+  phone?: string | null // numéro directement dans bookings si client non renseigné
 }
 
 interface Props {
@@ -39,15 +40,27 @@ export default function ReservationsTable({
           className="bg-white p-4 rounded-lg shadow flex justify-between items-center"
         >
           <div>
-            <p className="font-semibold">
-              {booking.client?.full_name || "Client"}
-            </p>
-            <p className="text-sm text-gray-500">
-              {booking.terrain?.name}
-            </p>
+            <p className="font-semibold">{booking.client?.full_name || "Client"}</p>
+            <p className="text-sm text-gray-500">{booking.terrain?.name}</p>
             <p className="text-sm">
               {booking.date} | {booking.start_time} - {booking.end_time}
             </p>
+
+            {/* Numéro cliquable pour appeler */}
+            {booking.client?.phone || booking.phone ? (
+              <p className="text-sm">
+                📞{" "}
+                <a
+                  href={`tel:${booking.client?.phone || booking.phone}`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {booking.client?.phone || booking.phone}
+                </a>
+              </p>
+            ) : (
+              <p className="text-sm text-gray-400">📞 Non renseigné</p>
+            )}
+
             <p
               className={`text-sm font-medium ${
                 booking.status === "confirmed"
@@ -64,17 +77,13 @@ export default function ReservationsTable({
           {booking.status === "pending" && (
             <div className="flex gap-3">
               <button
-                onClick={() =>
-                  onUpdateStatus(booking.id, "confirmed")
-                }
+                onClick={() => onUpdateStatus(booking.id, "confirmed")}
                 className="text-green-600 hover:text-green-800"
               >
                 <Check size={18} />
               </button>
               <button
-                onClick={() =>
-                  onUpdateStatus(booking.id, "cancelled")
-                }
+                onClick={() => onUpdateStatus(booking.id, "cancelled")}
                 className="text-red-600 hover:text-red-800"
               >
                 <X size={18} />
