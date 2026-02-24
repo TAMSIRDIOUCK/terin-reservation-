@@ -1,0 +1,21 @@
+{
+    "short_name": "TerinBooking",
+    "name": "Private Field Booking Platform",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4ade80",
+    "description": "Réservez vos terrains facilement et rapidement.",
+    "icons": [
+      {
+        "src": "../src/components/assets/image.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "../src/components/assets/image.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
