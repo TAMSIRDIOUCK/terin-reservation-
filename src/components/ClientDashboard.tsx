@@ -94,10 +94,10 @@ export function ClientDashboard({ user, profile, onSignOut }: Props) {
         {/* HEADER */}
         <header className="bg-white border-b shadow-sm p-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src="../src/components/assets/image.png" alt="Logo" className="h-20 w-20 object-contain" />
+            <img src="../assets/image.png" alt="Logo" className="h-20 w-20 object-contain" />
             <h1 className="text-xl font-bold"></h1>
           </div>
-
+  
           <div className="flex gap-4 items-center">
             <span className="font-medium">{profile.full_name || user?.email}</span>
             <button onClick={onSignOut} className="text-red-600">

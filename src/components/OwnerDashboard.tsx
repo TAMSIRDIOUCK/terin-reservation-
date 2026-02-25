@@ -134,7 +134,7 @@ export function OwnerDashboard({ user, profile, onSignOut }: Props) {
       {/* HEADER */}
       <header className="bg-white shadow-sm border-b p-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-        <img src="../src/components/assets/image.png" alt="Logo" className="h-20 w-20 object-contain" />
+        <img src="../assets/image.png" alt="Logo" className="h-20 w-20 object-contain" />
         <h1 className="text-2xl font-bold"></h1>
         </div>
         <div className="flex items-center gap-4">
